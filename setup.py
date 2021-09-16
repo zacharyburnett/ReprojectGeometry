@@ -49,7 +49,7 @@ setup(
     setup_requires=['dunamai', 'setuptools>=41.2'],
     install_requires=['numpy', 'pyproj>2.6', 'shapely'],
     extras_require={
-        'testing': ['pytest', 'pytest-xdist'],
+        'testing': ['pytest', 'pytest-cov', 'pytest-xdist'],
         'development': ['flake8', 'isort', 'oitnb'],
     },
 )
