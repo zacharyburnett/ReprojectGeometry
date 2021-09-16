@@ -1,5 +1,12 @@
 # ReprojectGeometry
 
+[![tests](https://github.com/noaa-ocs-modeling/ReprojectGeometry/workflows/tests/badge.svg)](https://github.com/noaa-ocs-modeling/ReprojectGeometry/actions?query=workflow%3Atests)
+[![codecov](https://codecov.io/gh/noaa-ocs-modeling/ensembleperturbation/branch/main/graph/badge.svg?token=4DwZePHp18)](https://codecov.io/gh/noaa-ocs-modeling/reprojectgeometry)
+[![build](https://github.com/noaa-ocs-modeling/ReprojectGeometry/workflows/build/badge.svg)](https://github.com/noaa-ocs-modeling/ReprojectGeometry/actions?query=workflow%3Abuild)
+[![version](https://img.shields.io/pypi/v/ReprojectGeometry)](https://pypi.org/project/ReprojectGeometry)
+[![license](https://img.shields.io/github/license/noaa-ocs-modeling/ReprojectGeometry)](https://creativecommons.org/share-your-work/public-domain/cc0)
+[![style](https://sourceforge.net/p/oitnb/code/ci/default/tree/_doc/_static/oitnb.svg?format=raw)](https://sourceforge.net/p/oitnb/code)
+
 reproject Shapely geometries
 
 ### Installation
