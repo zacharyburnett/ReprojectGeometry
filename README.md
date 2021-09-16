@@ -13,8 +13,9 @@ pip install -e .
 ### Usage
 
 ```python
-from reprojectgeometry import reproject_geometry
 from pyproj import CRS
+
+from reprojectgeometry import reproject_geometry
 
 wgs84_utm18n_polygon = Polygon(
     [
@@ -26,5 +27,13 @@ wgs84_utm18n_polygon = Polygon(
     ]
 )
 
-wgs84_polygon = reproject_geometry(wgs84_utm18n_polygon, CRS.from_epsg(32618), CRS.from_epsg(4326))
+print(wgs84_utm18n_polygon.exterior.xy)
+
+wgs84_polygon = reproject_geometry(
+    wgs84_utm18n_polygon,
+    CRS.from_epsg(32618),
+    CRS.from_epsg(4326),
+)
+
+print(wgs84_polygon.exterior.xy)
 ```
