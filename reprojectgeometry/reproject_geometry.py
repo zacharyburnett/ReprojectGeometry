@@ -2,14 +2,22 @@ from typing import Union
 
 import numpy
 from pyproj import CRS, Transformer
-from shapely.geometry import mapping
-from shapely.geometry import shape as shapely_shape
+from shapely.geometry import mapping, shape as shapely_shape
 from shapely.geometry.base import BaseGeometry
 
 
 def reproject_points(
     points: numpy.ndarray, input_crs: Union[CRS, str, int], output_crs: Union[CRS, str, int],
 ) -> numpy.array:
+    """
+    Reproject the given points into the given dataframe.
+
+    :param points: NxM array of points (only the first 2 columns x and y will be reprojected)
+    :param input_crs: coordinate reference system of given points
+    :param output_crs: coordinate reference system of output points
+    :return: NxM array of reprojected points
+    """
+
     if not isinstance(points, numpy.ndarray):
         points = numpy.array(points)
     if not isinstance(input_crs, CRS):
@@ -19,10 +27,15 @@ def reproject_points(
 
     transformer = Transformer.from_crs(crs_from=input_crs, crs_to=output_crs,)
 
-    return numpy.flip(
-        numpy.stack(arrays=transformer.transform(xx=points[:, 0], yy=points[:, 1],), axis=1,),
+    reprojected_points = numpy.flip(
+        numpy.stack(arrays=transformer.transform(xx=points[:, 0], yy=points[:, 1],), axis=1),
         axis=1,
     )
+
+    if points.shape[1] > 2:
+        reprojected_points = numpy.concatenate((reprojected_points, points[:, 3:]), axis=1)
+
+    return reprojected_points
 
 
 def reproject_geometry(
