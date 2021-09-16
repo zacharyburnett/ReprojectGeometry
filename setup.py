@@ -8,11 +8,9 @@ from setuptools import config, find_packages, setup
 
 def installed_packages() -> [str]:
     return [
-        re.split('#egg=', re.split('==| @ ', package.decode())[0])[
-            -1].lower()
+        re.split('#egg=', re.split('==| @ ', package.decode())[0])[-1].lower()
         for package in subprocess.run(
-            f'{sys.executable} -m pip freeze', shell=True,
-            capture_output=True,
+            f'{sys.executable} -m pip freeze', shell=True, capture_output=True,
         ).stdout.splitlines()
     ]
 
