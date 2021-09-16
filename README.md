@@ -14,6 +14,7 @@ pip install -e .
 
 ```python
 from pyproj import CRS
+from shapely.geometry import Polygon
 
 from reprojectgeometry.reproject_geometry import reproject_geometry
 
