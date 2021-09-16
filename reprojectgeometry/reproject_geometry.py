@@ -2,7 +2,8 @@ from typing import Union
 
 import numpy
 from pyproj import CRS, Transformer
-from shapely.geometry import mapping, shape as shapely_shape
+from shapely.geometry import mapping
+from shapely.geometry import shape as shapely_shape
 from shapely.geometry.base import BaseGeometry
 
 

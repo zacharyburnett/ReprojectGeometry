@@ -25,11 +25,11 @@ def test_reproject_point():
     wgs84_point = Point((-74.04453072, 40.68916014))
     wgs84_multipoint = MultiPoint([(-74.04453072, 40.68916014), (-74.0445898, 40.6889183)])
 
-    reprojected_point = reproject_geometry(wgs84_utm18n_point, WGS84_UTM18N, WGS84,)
-    reprojected_multipoint = reproject_geometry(wgs84_utm18n_multipoint, WGS84_UTM18N, WGS84,)
+    reprojected_point = reproject_geometry(wgs84_utm18n_point, WGS84_UTM18N, WGS84)
+    reprojected_multipoint = reproject_geometry(wgs84_utm18n_multipoint, WGS84_UTM18N, WGS84)
 
-    assert reprojected_point.almost_equals(wgs84_point, decimal=5,)
-    assert reprojected_multipoint.almost_equals(wgs84_multipoint, decimal=5,)
+    assert reprojected_point.almost_equals(wgs84_point, decimal=5)
+    assert reprojected_multipoint.almost_equals(wgs84_multipoint, decimal=5)
 
 
 def test_reproject_linestring():
@@ -51,13 +51,13 @@ def test_reproject_linestring():
         ]
     )
 
-    reprojected_linestring = reproject_geometry(wgs84_utm18n_linestring, WGS84_UTM18N, WGS84,)
+    reprojected_linestring = reproject_geometry(wgs84_utm18n_linestring, WGS84_UTM18N, WGS84)
     reprojected_multilinestring = reproject_geometry(
         wgs84_utm18n_multilinestring, WGS84_UTM18N, WGS84,
     )
 
-    assert reprojected_linestring.almost_equals(wgs84_linestring, decimal=5,)
-    assert reprojected_multilinestring.almost_equals(wgs84_multilinestring, decimal=5,)
+    assert reprojected_linestring.almost_equals(wgs84_linestring, decimal=5)
+    assert reprojected_multilinestring.almost_equals(wgs84_multilinestring, decimal=5)
 
 
 def test_reproject_polygon():
@@ -129,10 +129,10 @@ def test_reproject_polygon():
         ]
     )
 
-    reprojected_polygon = reproject_geometry(wgs84_utm18n_polygon, WGS84_UTM18N, WGS84,)
+    reprojected_polygon = reproject_geometry(wgs84_utm18n_polygon, WGS84_UTM18N, WGS84)
     reprojected_multipolygon = reproject_geometry(
         wgs84_utm18n_multipolygon, WGS84_UTM18N, WGS84,
     )
 
-    assert reprojected_polygon.almost_equals(wgs84_polygon, decimal=5,)
-    assert reprojected_multipolygon.almost_equals(wgs84_multipolygon, decimal=5,)
+    assert reprojected_polygon.almost_equals(wgs84_polygon, decimal=5)
+    assert reprojected_multipolygon.almost_equals(wgs84_multipolygon, decimal=5)
