@@ -37,10 +37,3 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Run tests
         run: pytest --numprocesses=auto
-      - name: Upload coverage to Codecov
-        if: matrix.python-version == 3.9
-        uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          flags: python${{ matrix.python-version }}-${{ runner.os }}
-          fail_ci_if_error: true
